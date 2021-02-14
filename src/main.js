@@ -5,6 +5,16 @@ import './css/styles.css';
 import Currency from './exchange-service.js';
 
 
+function getRates(response, userInput, selectCurrency) {
+  if (response.conversion_rates) {
+    if (response.conversion_rates[selectCurrency]) {
+      $('.results').text('The conversion rate is ' + (parseFloat(userInput) * response.conversion_rates[selectCurrency]));
+    }
+    else {
+      alert("sdfsdf");
+    }
+  }
+}
 
 
 
@@ -12,7 +22,7 @@ import Currency from './exchange-service.js';
 
 async function makeApiCall(userInput, selectCurrency) {
   const response = await Currency.getConversion();
-  getConversion(response, userInput, selectCurrency);
+  getRates(response, userInput, selectCurrency);
 }
 
 
@@ -21,5 +31,6 @@ $('#rates').submit(function() {
 
   let userInput = $('#userInput').val();
   let selectCurrency = $('#selectCurrency').val();
+  makeApiCall(userInput, selectCurrency)
 
 });
