@@ -10,8 +10,8 @@ function getRates(response, userInput, selectCurrency) {
     if (response.conversion_rates[selectCurrency]) {
       $('.results').text('The conversion rate is ' + (parseFloat(userInput) * response.conversion_rates[selectCurrency]));
     }
-    else {
-      alert("sdfsdf");
+    else if (typeof(response) === 'object') {
+      $('.results').text(`Error for currency:  ${response['error-type']}`);
     }
   }
 }
