@@ -11,19 +11,16 @@ function getRates(response, userInput, selectCurrency) {
       $('.results').text('The conversion rate is ' + (parseFloat(userInput) * response.conversion_rates[selectCurrency]));
     }
     else {
-      $('.results').text(`There was the following error: ${response['error-type']}`);
-      
+      $('.results').text(`Currency not supported. Please choose again`);
       }
     }
-    else if (typeof(response) === 'object') {
-      
-      $('.results').text('Currency not supported. Please choose again');
+    else if (response.conversion_rates) {
+      $('.results').text(`There was the following error: ${response['error-type']}`);
     }
     else {
       $('.results').text(`There was the following error: ${response}`);
     }
   }
-
 
 
 async function makeApiCall(userInput, selectCurrency) {
