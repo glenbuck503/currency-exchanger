@@ -17,9 +17,6 @@ function getRates(response, userInput, selectCurrency) {
 }
 
 
-
-
-
 async function makeApiCall(userInput, selectCurrency) {
   const response = await Currency.getConversion();
   getRates(response, userInput, selectCurrency);
