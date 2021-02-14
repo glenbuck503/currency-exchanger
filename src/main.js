@@ -14,8 +14,8 @@ function getRates(response, userInput, selectCurrency) {
       $('.results').text(`Currency not supported. Please choose again ${response['error-type']}`);
       }
     }
-    else if (typeof(response) === 'undefined') {
-      $('.error').text(`There was the following error: ${response['error-type']}`);
+    else if (response.result == "error") {
+      $('#output').text(`There was the following error: ${response['error-type']}`);
     }
     else {
       $('.results').text(`There was the following error: ${response}`);
