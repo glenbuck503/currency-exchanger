@@ -6,21 +6,16 @@ import Currency from './exchange-service.js';
 
 
 function getRates(response, userInput, selectCurrency) {
-  if (response.conversion_rates) {
-    if (response.conversion_rates[selectCurrency]) {
-      $('.results').text('The conversion rate is ' + (parseFloat(userInput) * response.conversion_rates[selectCurrency]));
-    }
-    else {
-      $('.results').text(`Currency not supported. Please choose again ${response['error-type']}`);
-      }
-    }
-    else if (response.result == "error") {
-      $('#output').text(`There was the following error: ${response['error-type']}`);
-    }
-    else {
-      $('.results').text(`There was the following error: ${response}`);
-    }
+  if (response.conversion_rates && response.conversion_rates[selectCurrency]) {
+    $('.results').text('The conversion rate is ' + (parseFloat(userInput) * response.conversion_rates[selectCurrency]));
+
+  } else {
+    $('.results').text(`Currency not supported. Please choose again ${response['error-type']}`);
+    $('.error').text(`There was the following error: ${response}`);
+
   }
+}
+    
 
 
 
@@ -38,3 +33,21 @@ $('#rates').submit(function() {
   makeApiCall(userInput, selectCurrency)
 
 });
+
+
+// function getRates(response, userInput, selectCurrency) {
+//   if (response.conversion_rates) {
+//     if (response.conversion_rates[selectCurrency]) {
+//       $('.results').text('The conversion rate is ' + (parseFloat(userInput) * response.conversion_rates[selectCurrency]));
+//     }
+//     else {
+//       $('.results').text(`Currency not supported. Please choose again ${response['error-type']}`);
+//       }
+//     }
+//     else if (response.conversion_rates != "GGG") {
+//       $('.results').text(`There was the following error: ${response['error-type']}`);
+//     }
+//     else {
+//       $('.results').text(`There was the following error: ${response}`);
+//     }
+//   }
