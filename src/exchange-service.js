@@ -1,4 +1,4 @@
-export default class CurrencyConverter {
+export default class Currency {
   static async getUSD() {
     try {
       const response = await fetch (`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
