@@ -30,6 +30,7 @@ This application will let users select currency rates from 5 different countries
 - Open terminal or bash and get to the directory you want to download the repo to.
 - Type into the terminal "git clone command + v if using Mac or control + v is using a PC" and press enter.
 - Open the file labeled "index.html" in the directory you just downloaded the repo to.
+- Go to the terminal and in the root directory, type in "NPM install".
 - You will need to set up your own .env file and add your API Key inside that file.
   Instrucitons on how to setup .env file
   _ Open the project directory in VS Code
